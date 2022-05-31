@@ -1,0 +1,10 @@
+.h5p-degree-input .degreeCell {
+  width: 1.2em;
+  margin: 2px;
+}
+
+
+.h5p-degree-input .wrongInputCell {
+  border: 3px solid red;
+}
+
