@@ -1,7 +1,8 @@
 {
   "libraryStrings": {
     "invalidTime": "\":property\" contains an invalid timecode.",
-    "wrongDegrees": "Error! The allowed degrees are: -5,-6,-7,1,2,3,4,5,6,7,8",
-    "fieldDescription": "Enter 7 degrees of the short melody as numbers in range: 5,-6,-7,1,2,3,4,5,6,7,8. 8 stands for the octave."
+    "wrongDegrees": "Wrong or missing degrees! The allowed degrees are: -5,-6,-7,1,2,3,4,5,6,7,8",
+    "reset": "Reset",
+    "validate": "Validate"
   }
 }

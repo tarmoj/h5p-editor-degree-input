@@ -33,11 +33,13 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
             $input = $item.find('input');
             $errors = $item.children('.h5p-errors');
 
+            //console.log("Init. field: ", self.field);
+
             // Validate on change
             $input.change(function () {
                 // Validate
                 const value = self.validate();
-                console.log("Change function: ", value);
+                //console.log("Change function: ", value);
 
                 if (value !== false) {
                     //console.log("String value: ", value.join(" "));
@@ -68,13 +70,13 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
                             const index = parseInt(event.target.getAttribute("index"));
                             const input = event.target.value;
                             //console.log(index, input);event
-                            console.log("Key: ",event.key);
+                            //console.log("Key: ",event.key);
                             let result = true;
                             let move = 0;
 
                             if ( /\d/.test(event.key) ) { // if number, validate and move to next
                                 result =  validateCell(input);
-                                console.log("is digit. result:", result);
+                                //console.log("is digit. result:", result);
                                 if (result) {
                                     if (index<6) move = 1;
                                     if (index==6) self.validate();
@@ -92,7 +94,7 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
                                 this.degreeInputCells[index+move].focus();
                             }
                             if (event.key==='Enter') {
-                                console.log("Enter");
+                                //console.log("Enter");
                                 self.validate();
                             }
                         }
@@ -106,7 +108,7 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
             $('<button>', {
                 id: "resetButton",
                 class: "h5peditor-button", // h5p-editor button does not exist...
-                text: "Reset",
+                text: t("reset"),
                 click: () => {
                     for (const $element  of this.degreeInputCells) {
                         $element.val("");
@@ -117,11 +119,11 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
             $('<button>', {
                 id: "validateButton",
                 class: "button",
-                text: "Validate",
+                text: t("validate"),
                 click: () => { () => self.validate();  }
             }).appendTo($degreeInput);
 
-            console.log("Created degreeInput: ", $degreeInput, this.degreeInputCells);
+            //console.log("Created degreeInput: ", $degreeInput, this.degreeInputCells);
             return $degreeInput; //this.degreeInputCells;
         }
 
@@ -145,16 +147,13 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
             // Add description:
             $('<span>', {
                 'class': 'h5peditor-field-description',
-                html: t("fieldDescription")
-            }).appendTo(self.$container)
-
-
-            //const $degreeInput= createDegreeInput();
-            //console.log($degreeInput);
+                html: self.field.description
+            }).appendTo($container)
 
             $container.append(createDegreeInput());
 
             $('<div>', {id: "errorsDiv", class:"h5p-errors"}).appendTo($container);
+
             return $container;
         };
 
@@ -191,21 +190,21 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
                 const $cell = this.degreeInputCells[i];
                 const value = parseInt($cell.val());
                 const result = validateCell(value);
-                console.log("Value: ",i, value, result);
+                //console.log("Value: ",i, value, result);
                 if (!result) {
                     ok = false;
-                    //$cell.addClass('redBorder');
-                    $cell.css("background", "lightpink");
+                    $cell.addClass('wrongInputCell');
+                    //$cell.css("background", "lightpink");
                 } else {
                     valueArray[i] = value;
-                    //$cell.removeClass('redBorder');
-                    $cell.css("background", "white");
+                    $cell.removeClass('wrongInputCell');
+                    //$cell.css("background", "white");
                 }
             }
 
-            console.log("Result is: ", ok, valueArray);
+            //console.log("Result is: ", ok, valueArray);
             if (!ok) {
-                console.log("Not OK", ok);
+                //console.log("Not OK", ok);
                 $errors.append(H5PEditor.createError(t("wrongDegrees")));
                 return false;
             } else {
@@ -252,5 +251,5 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
         return H5PEditor.t('core', key, placeholders);
     };
 
-    return Timecode;
+    return DegreeInput;
 })(H5P.jQuery);
