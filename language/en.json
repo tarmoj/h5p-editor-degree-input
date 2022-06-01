@@ -2,7 +2,7 @@
   "libraryStrings": {
     "invalidTime": "\":property\" contains an invalid timecode.",
     "wrongDegrees": "Wrong or missing degrees! The allowed degrees are: -5,-6,-7,1,2,3,4,5,6,7,8",
-    "reset": "Reset",
+    "clear": "Clear",
     "validate": "Validate"
   }
 }

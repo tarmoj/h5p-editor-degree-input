@@ -2,7 +2,7 @@
   "libraryStrings": {
     "invalidTime": "\":property\" sisaldab mittesobivat ajakoodi.",
     "wrongDegrees": "Astmed on puudu või vigased! Lubatud astmed on: -5,-6,-7,1,2,3,4,5,6,7,8",
-    "reset": "Nulli",
+    "clear": "Tühjenda",
     "validate": "Valideeri"
   }
 }
