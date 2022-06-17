@@ -22,6 +22,9 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
         let $item, $input, $errors;
 
         self.field = field;
+        
+        self.oldValues = params.trim().split(" "); // values is forwarded and saved as string with spaces (for simplicity), break it back to array.
+        console.log("Editor constructor: params, values:", params, self.oldValues);
 
         /**
          * Initialize timecode fields.
@@ -44,6 +47,7 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
                 if (value !== false) {
                     //console.log("String value: ", value.join(" "));
                     setValue(field, value.join(" "));
+                    //setValue(field, value); // value is array
                 }
             });
         };
@@ -100,7 +104,7 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
                         }
                     }
 
-                );
+                ).val( self.oldValues[i] ? self.oldValues[i] : "" ); // set the value from last use, if present
                 $degreeInput.append($cell);
                 this.degreeInputCells.push($cell);
             }
