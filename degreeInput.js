@@ -110,9 +110,9 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
             }
 
             $('<button>', {
-                id: "resetButton",
+                id: "clearButton",
                 class: "h5peditor-button", // h5p-editor button does not exist...
-                text: t("reset"),
+                text: t("clear"),
                 click: () => {
                     for (const $element  of this.degreeInputCells) {
                         $element.val("");
