@@ -23,7 +23,7 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
 
         self.field = field;
         
-        self.oldValues = params.trim().split(" "); // values is forwarded and saved as string with spaces (for simplicity), break it back to array.
+        self.oldValues = params ? params.trim().split(" ") : []; // values is forwarded and saved as string with spaces (for simplicity), break it back to array.
         console.log("Editor constructor: params, values:", params, self.oldValues);
 
         /**
