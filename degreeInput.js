@@ -45,7 +45,7 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
                 //console.log("Change function: ", value);
 
                 if (value !== false) {
-                    //console.log("String value: ", value.join(" "));
+                    //console.log("String value: ", value.join(" "));https://www.youtube.com/watch?v=DLjUOKiSLSI
                     setValue(field, value.join(" "));
                     //setValue(field, value); // value is array
                 }
@@ -120,12 +120,12 @@ H5PEditor.widgets.degreeInput = H5PEditor.DegreeInput = (function ($) {
                 }
             }).appendTo($degreeInput);
 
-            $('<button>', {
-                id: "validateButton",
-                class: "button",
-                text: t("validate"),
-                click: () => { () => self.validate();  }
-            }).appendTo($degreeInput);
+            // $('<button>', {
+            //     id: "validateButton",
+            //     class: "button",
+            //     text: t("validate"),
+            //     click: () => { () => self.validate();  }
+            // }).appendTo($degreeInput);
 
             //console.log("Created degreeInput: ", $degreeInput, this.degreeInputCells);
             return $degreeInput; //this.degreeInputCells;
